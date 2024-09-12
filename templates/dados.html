@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+    Nome do paciente: {{dados.paciente}}
+    Data da Consulta: {{dados.data_consulta}}
+
+    {% if dados.data_consulta >= '02/18/2000' %}
+    <h3>Oi</h3>
+    {% else %}
+    <p>Oi</p>
+    {% endif %}
+
+    <table>
+        <tr>
+            <th>Paciente</th>
+        </tr>
+        {% for paciente in dados.getlist('paciente') %}
+        <tr>
+            <td>{{paciente}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

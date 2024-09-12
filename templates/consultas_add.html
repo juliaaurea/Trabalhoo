@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+    {% set mensagens = get_flashed_messages() %} 
+    {% if mensagens %}  
+        {% for msg in mensagens %}
+            {{ msg }}
+        {% endfor %}
+    {% endif %}
+    <form action="/consultas/save" method="post">
+        <fieldset>
+            <label for="paciente">Nome do paciente: </label>
+            <input type="text" name="paciente" id="paciente">
+            <label for="data_consulta">Data da Consulta: </label>
+            <input type="date" name="data" id="data">
+            <label for="medico">Médico: </label>
+            <input type="text" name="medico" id="medico">
+            <button type="submit">Salvar</button>
+        </fieldset>
+    </form>
+
+{% endblock %}

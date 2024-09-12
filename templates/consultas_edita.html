@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+    {% set mensagens = get_flashed_messages() %} 
+    {% if mensagens %}  
+        {% for msg in mensagens %}
+            {{ msg }}
+        {% endfor %}
+    {% endif %}
+    <form action="/consultas/editasave" method="post">
+        <fieldset>
+        <input type="hidden" name="id" value="{{dados.id}}">
+        <label for="paciente">Nome do paciente: </label>
+        <input type="text" name="paciente" id="paciente" value="{{dados.paciente}}">
+        <label for="data_consulta">Data da Consulta: </label>
+        <input type="date" name="data" id="data" value="{{dados.data_consulta}}">
+        <label for="medico">Medico: </label>
+        <input type="text" name="medico" id="medico" value="{{dados.medico}}">
+        <button type="submit">Salvar</button>
+        </fieldset>
+    </form>
+
+{% endblock %}
